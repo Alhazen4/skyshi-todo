@@ -1,0 +1,145 @@
+<div class="todo-exist-not">
+    <div class="d-flex flex-row justify-content-between">
+        <div data-cy="activity-title" class="d-flex flex-row">
+            
+            <button data-cy="todo-back-button" class="nav-icon-black" routerLink="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                </svg>
+            </button>
+
+            <ng-container *ngIf="isInputFocused === false; else inputFocus">
+                <p data-cy="todo-title">
+                    {{ showTitle.value }}
+                </p>
+            </ng-container>
+
+            <ng-template #inputFocus>
+                <input 
+                data-cy="todo-title"
+                #inputTitle
+                type="text" 
+                [formControl]="showTitle" 
+                [readOnly]="readOnly" 
+                [ngClass]="{'focused': isInputFocused}"
+                >
+            </ng-template>
+
+            <button data-cy="todo-title-edit-button" class="nav-icon" (click)="editTitle()" id="editButton">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <button data-cy="todo-sort-button" class="btn btn-secondary btn-filter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-arrow-down-up"></i>
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+                <li class="dropdown-list">
+                        <button class="dropdown-item d-flex flex-row gap-3 justify-content-start align-items-center" href="#">
+                            <i class="bi bi-sort-up"></i>
+                            Terbaru
+                        </button>
+                </li>
+                <li class="dropdown-list">
+                        <button class="dropdown-item d-flex flex-row gap-3 justify-content-start align-items-center" href="#">
+                            <i class="bi bi-sort-down"></i>
+                            Terlama
+                        </button>
+                </li>
+                <li class="dropdown-list">
+                        <button class="dropdown-item d-flex flex-row gap-3 justify-content-start align-items-center" href="#">
+                            <i class="bi bi-sort-alpha-down"></i>
+                            A-Z
+                        </button>
+                </li>
+                <li class="dropdown-list">
+                        <button class="dropdown-item d-flex flex-row gap-3 justify-content-start align-items-center" href="#">
+                            <i class="bi bi-sort-alpha-down-alt"></i>
+                            Z-A
+                        </button>
+                </li>
+                <li class="dropdown-list">
+                        <button class="dropdown-item d-flex flex-row gap-3" href="#">
+                            <i class="bi bi-arrow-down-up"></i>
+                        Belum Selesai
+                        </button>
+                </li>
+            </ul>
+
+            <button 
+                data-cy="todo-add-button" 
+                type="button" 
+                class="btn btn-primary btn-tambah"
+                (click)="openSaveModal(content)"
+            >
+                    <i class="bi bi-plus"></i>
+                    Tambah
+            </button>
+
+            <ng-template #content let-modal>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah List Item</h1>
+                        <button type="button" class="btn-close" (click)="modal.dismiss()" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="inputTodoTitle" class="form-label">Nama List Item</label>
+                                <input [formControl]="inputTodoTitle"  type="text" class="form-control" id="inputTodoTitle">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputTodoPriority" class="form-label">Priority</label>
+                                <select [formControl]="inputTodoPriority" class="form-select">
+                                    <option value="very-high">Very High</option>
+                                    <option value="high">High</option>
+                                    <option value="normal">Medium</option>
+                                    <option value="low">Low</option>
+                                    <option value="very-low">Very Low</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <ng-container *ngIf="isAddNewTodo; else updateTodoBtn">
+                            <button type="button" class="btn btn-tambah-2" (click)="saveTodo()">Simpan</button>
+                        </ng-container>
+                        
+                        <ng-template #updateTodoBtn>
+                            <button type="button" class="btn btn-tambah-2" (click)="updateTodo()">Update</button>
+                        </ng-template>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="activityItemsLength === 0; else activityExist">
+    <div class="activity">
+        <div class="activity-empty d-flex align-items-center justify-content-center">
+            <h5>Buat List item kamu</h5>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #activityExist>
+    <div class="activity">
+        <div class="activity-exist">
+            <ng-container *ngFor="let item of activityItems">
+                    <app-activity-card
+                        [activity_group_id]="item.activity_group_id"
+                        [id]="item.id"
+                        [is_active]="item.is_active"
+                        [priority]="item.priority"
+                        [title]="item.title"
+                        (getTodoList)="getTodoItem()"
+                        (getTodoDetail)="getTodoDetail(content, $event)"
+                    ></app-activity-card>
+            </ng-container>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,15 @@
+<div class="card">
+    <button data-cy='activity-item-0' routerLink="/activity/{{ id }}" routerLinkActive="active" class="card-body btn-detail d-flex align-items-start justify-content-start" (click)="cardClick()">
+        <h5 data-cy="activity-item-title" class="card-title">
+            {{ showTitle }}
+        </h5>
+    </button>
+    <div class="card-footer d-flex flex-row justify-content-between">
+        <p data-cy="activity-item-date" class="card-text">
+            {{ showDate | date:"dd / MM / yyyy" }}
+        </p>
+        <button data-cy="activity-item-delete-button" (click)="removeClick()" class="btn-remove" >
+            <i class="bi bi-trash3"></i>
+        </button>
+    </div>
+</div>

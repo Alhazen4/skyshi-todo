@@ -1,0 +1,37 @@
+.card {
+    width: 235px;
+    height: 234px;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+
+    & .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        // font-family: poppins;
+    }
+
+    & .btn-detail {
+        border: 0;
+        background-color: transparent;
+    }
+    
+    & .card-text {
+        margin: 0;
+        color: #888888;
+        font-size: 14px;
+        font-weight: 500;
+        // font-family: poppins;
+    }
+    
+    & .btn-remove {
+        border: 0;
+        background-color: transparent;
+        color: #888888;
+    }
+
+    & .card-footer {
+        border-top: 0;
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,121 @@
+.activity {
+    width: 100%;
+    height: 100px;
+    margin-top: 50px;
+    padding: 0 220px 0 220px;
+
+    &-empty {
+        width: 100%;
+
+        & h5 {
+            margin-top: 100px;
+            color: #555555;
+        }
+    }
+
+    &-exist {
+        background-color: aliceblue;
+        width: 100%;
+
+        & h5 {
+            margin-top: 100px;
+            color: #555555;
+        }
+    }
+}
+
+.todo-exist-not {
+    width: 1000px;
+    margin-top: 40px;
+    padding: 43px 220px 0 220px;
+    width: 100%;
+    height: 100%;
+
+    & .btn-tambah {
+        margin-left: 18px;
+        width: 150px;
+        height: 55px;
+        background-color: #16ABF8;
+        border: 0;
+        border-radius: 45px;
+        font-weight: 600;
+        font-size: 18px;
+
+        &-2 {
+            width: 150px;
+            height: 55px;
+            background-color: #16ABF8;
+            border: 0;
+            border-radius: 45px;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+        }
+    }
+
+    & .btn-filter {
+        width: 55px;
+        height: 55px;
+        background-color: transparent;
+        color: #888888;
+        border: 1px solid #E5E5E5;
+        border-radius: 100%;
+    }
+
+    & input {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 35px;
+        background-color: transparent;
+        // font-family: popppin;
+        outline: 0;
+        border: 0;
+
+        &.focused {
+            border-bottom: 1px solid black;
+        }
+    }
+
+    & p {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 35px;
+        background-color: transparent;
+        // font-family: popppin;
+    }
+
+    & .nav-icon {
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background-color: transparent;
+        color: #888888;
+        
+        &-black {
+            margin-right: 20px;
+            width: 12px;
+            height: 12px;
+            border: 0;
+            background-color: transparent;
+            color: #000000;
+        }
+    }
+
+    & .dropdown-menu {
+        padding: 0;
+    }
+
+    & .dropdown-list {
+        width: 235px;
+        height: 52px;
+
+        & button {
+            height: 100%;
+
+            & i {
+                color:#16ABF8;
+            }
+        }
+    }
+}

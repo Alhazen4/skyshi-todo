@@ -1,0 +1,51 @@
+.todo-exist-not {
+    width: 1000px;
+    margin-top: 40px;
+    padding: 43px 220px 0 220px;
+    width: 100%;
+    height: 100%;
+
+    & a {
+        width: 300px;
+        height: 100%;
+        background-color: #16ABF8;
+        border: 0;
+        border-radius: 45px;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    & h2 {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 35px;
+        // font-family: popppin;
+    }
+
+    & .nav-icon {
+        margin-left: 20px;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        background-color: transparent;
+        color: #ffffff;
+        
+        &-black {
+            margin-right: 20px;
+            width: 12px;
+            height: 12px;
+            border: 0;
+            background-color: transparent;
+            color: #000000;
+        }
+    }
+}
+
+.todo-exist {
+    margin-top: 20px;
+    width: 1000px;
+    
+    & .col {
+        width: 250px;
+    }
+}
