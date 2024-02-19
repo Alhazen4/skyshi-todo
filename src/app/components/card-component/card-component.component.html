@@ -26,9 +26,9 @@
                 <b>{{ title }}</b>?
             </p>
         </div>
+        <button data-cy="modal-delete-cancel-button" type="button" class="btn btn-batal" (click)="modal.dismiss()">Batal</button>
+        <button data-cy="modal-delete-confirm-button" (click)="removeClick()" type="button" class="btn btn-hapus" data-bs-dismiss="modal">Hapus</button>
         <div class="modal-footer d-flex align-items-center justify-content-center">
-            <button data-cy="modal-delete-cancel-button" type="button" class="btn btn-batal" (click)="modal.dismiss()">Batal</button>
-            <button data-cy="modal-delete-confirm-button" (click)="removeClick()" type="button" class="btn btn-hapus" data-bs-dismiss="modal">Hapus</button>
         </div>
     </div>
 </ng-template>
