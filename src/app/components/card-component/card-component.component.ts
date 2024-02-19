@@ -1,7 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { NgFor, DatePipe  } from '@angular/common';
 import { ActivityService } from '../../services/activity.service';
 import { RouterLink } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-card-component',
@@ -12,7 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CardComponentComponent {
 
-  constructor(private activityService: ActivityService) {}
+  constructor(private activityService: ActivityService, private modalService: NgbModal) {}
 
 
   @Input() id: number = 0;
@@ -35,8 +36,13 @@ export class CardComponentComponent {
     this.activityService.getActivityDetail(this.id).then(res => console.log(res))
   }
 
+  openRemoveModal(content: TemplateRef<any>) {
+    this.modalService.open(content, { centered: true });
+  }
+
   removeClick() {
     this.activityService.deleteActivity(this.id).then(res => {
+      this.modalService.dismissAll();
       this.getActivity.emit();
     })
   }

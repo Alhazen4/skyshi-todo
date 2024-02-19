@@ -35,3 +35,43 @@
         background-color: transparent;
     }
 }
+
+.btn {
+    &-hapus {
+        margin-left: 18px;
+        width: 150px;
+        height: 55px;
+        background-color: #ED4C5C;
+        border: 0;
+        border-radius: 45px;
+        font-weight: 600;
+        font-size: 18px;
+        color: white;
+    }
+
+    &-batal {
+        width: 150px;
+        height: 55px;
+        background-color: #F4F4F4;
+        border: 0;
+        border-radius: 45px;
+        font-weight: 600;
+        font-size: 18px;
+        color: #4A4A4A;
+    }
+}
+
+.modal-body {
+    padding: 40px 62px 40px 62px;
+
+    & p {
+        font-weight: 700;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.modal-footer {
+    border: 0;
+    margin-bottom: 40px;
+}
