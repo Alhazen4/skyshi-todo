@@ -20,6 +20,7 @@ export class CardComponentComponent {
   @Input() title: string = '';
   @Input() date: string = '';
   @Input() index: number = 0;
+  dataCy: string = ''
   @Output() getActivity = new EventEmitter<string>()
 
   showTitle: string = '';
@@ -28,6 +29,7 @@ export class CardComponentComponent {
   ngOnInit() {
     this.showTitle = this.title
     this.showDate = this.date
+    this.dataCy = `activity-item-${this.index}`
     console.log(this.index);
   }
 

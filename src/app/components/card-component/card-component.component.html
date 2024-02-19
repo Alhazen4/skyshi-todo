@@ -1,5 +1,5 @@
 <div class="card">
-    <button data-cy='activity-item-0' routerLink="/activity/{{ id }}" routerLinkActive="active" class="card-body btn-detail d-flex align-items-start justify-content-start" (click)="cardClick()">
+    <button [attr.data-cy]="dataCy" routerLink="/activity/{{ id }}" routerLinkActive="active" class="card-body btn-detail d-flex align-items-start justify-content-start" (click)="cardClick()">
         <h5 data-cy="activity-item-title" class="card-title">
             {{ showTitle }}
         </h5>
